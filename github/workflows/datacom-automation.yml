@@ -1,0 +1,21 @@
+name: Datacom Training Automation Workflow
+
+# Trigger the robot every time code is pushed to the repository
+on: [push]
+
+# Define the concept variables Samuel requested
+env:
+  TEAM_LEADER: "Samuel"
+  STUDENT_NAME: "David John"
+
+jobs:
+  run-diagnostic-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository Code
+        uses: actions/checkout@v4
+
+      - name: Initialize Automated Welcome Message
+        run: |
+          echo "Hello ${{ env.TEAM_LEADER }}!"
+          echo "This automation workflow was successfully built by ${{ env.STUDENT_NAME }}."
